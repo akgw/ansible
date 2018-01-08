@@ -1,3 +1,5 @@
 /.idea
 /.vagrant
 /provisioning/*.retry
+/provisioning/*/*/src/*
+.*.swp

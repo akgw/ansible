@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "ansible" do |ansible|
        ansible.playbook = "provisioning/backend.yml"
-       ansible.inventory_path = "provisioning/hosts/local"
+       ansible.inventory_path = "provisioning/hosts/local/backend"
        ansible.limit = 'all'
     end
   end
@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
     
     config.vm.provision "ansible" do |ansible|
        ansible.playbook = "provisioning/frontend.yml"
-       ansible.inventory_path = "provisioning/hosts/local"
+       ansible.inventory_path = "provisioning/hosts/local/frontend"
        ansible.limit = 'all'
     end
   end

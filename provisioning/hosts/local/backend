@@ -1,10 +1,5 @@
 [backend]
 192.168.3.10 ansible_user=ubuntu
 
-[frontend]
-192.168.3.11 ansible_user=ubuntu
-
-
 [local:children]
 backend
-frontend

@@ -1,0 +1,6 @@
+[frontend]
+192.168.3.11 ansible_user=ubuntu
+
+
+[local:children]
+frontend

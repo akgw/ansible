@@ -2,6 +2,15 @@
 - name: install nginx
   apt: name=nginx update_cache=yes
 
+- name: create directories for ssl certificates
+  file: path=/etc/nginx/ssl state=directory
+
+- name: copy TLS key
+  copy: src=src/ssl/server.key dest=/etc/nginx/ssl/nginx.key owner=root mode=0600
+
+- name: copy TLS certificate
+  copy: src=src/ssl/server.crt dest=/etc/nginx/ssl/nginx.crt
+
 - name: copy nginx config file
   template: src=templates/nginx.conf.j2 dest=/etc/nginx/sites-available/default
 

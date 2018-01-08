@@ -1,0 +1,13 @@
+---
+- name: install nginx
+  apt: name=nginx update_cache=yes
+
+- name: copy nginx config file
+  template: src=templates/nginx.conf.j2 dest=/etc/nginx/sites-available/default
+
+- name: apache stop
+  service: name=apache2 state=stopped
+
+- name: restart nginx
+  service: name=nginx state=restarted
+

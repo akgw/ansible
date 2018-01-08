@@ -1,0 +1,9 @@
+- hosts: backend
+  become: yes
+  user: vagrant
+  roles:
+      - zsh
+      - php7
+      - git
+      - nginx
+      - composer

@@ -21,6 +21,12 @@ Vagrant.configure("2") do |config|
     u.vm.network :private_network, ip: "192.168.3.11"
     u.vm.hostname = "frontend.co.jp"
     u.vm.synced_folder "../Frontend", "/home/vagrant/Frontend", mount_options:['dmode=777','fmode=777']
+    
+    config.vm.provision "ansible" do |ansible|
+       ansible.playbook = "provisioning/frontend.yml"
+       ansible.inventory_path = "provisioning/hosts/local"
+       ansible.limit = 'all'
+    end
   end
 
 end

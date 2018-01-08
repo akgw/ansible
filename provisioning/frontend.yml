@@ -1,0 +1,9 @@
+- hosts: frontend
+  become: yes
+  user: vagrant
+  roles:
+      - zsh
+      - php7
+      - git
+      - nginx
+      - composer

@@ -29,4 +29,16 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "db_master" do |u|
+    u.vm.box = "ubuntu/trusty64"
+    u.vm.network :private_network, ip: "192.168.3.20"
+    u.vm.hostname = "db-master.co.jp"
+
+    config.vm.provision "ansible" do |ansible|
+       ansible.playbook = "provisioning/db_master.yml"
+       ansible.inventory_path = "provisioning/hosts/local/db_master"
+       ansible.limit = 'all'
+    end
+  end
+
 end
